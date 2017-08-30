@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void iniciarConteo() {
-        ContadorTask contadorTask = new ContadorTask();
-        contadorTask.execute(60);
+        // TODO: Paso 5
+        // Luego de colocar lo que hara el AsyncTask, lo iniciamos.
+
     }
 
     // AsyncTask
@@ -40,24 +41,18 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            iniciarButton.setEnabled(false);
+            // TODO: Paso 1
+            // Aquí se pone lo que quieres hacer antes de iniciar el proceso
+
+
         }
 
         @Override
         protected Void doInBackground(Integer... integers) {
-            int tope = integers[0];
 
-            publishProgress(tope);
+            // TODO: Paso 2
+            // Aquí se pone lo que tarda tiempo (el proceso)
 
-            try {
-                do {
-                    tope--;
-                    Thread.sleep(500);
-                    publishProgress(tope);
-                } while (tope > 0);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
             return null;
         }
@@ -66,9 +61,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
 
-            String numero = values[0].toString();
+            // TODO: Paso 3
+            // Aquí se pone si necesitas actualizar algo de la interfaz durante el proceso
 
-            contadorTextView.setText(numero);
+
         }
 
 
@@ -76,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            iniciarButton.setEnabled(true);
+            // TODO: Paso 4
+            // Aquí se pone lo que quieres hacer cuando termine el proceso
+
         }
     }
 }
